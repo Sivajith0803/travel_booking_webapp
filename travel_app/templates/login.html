@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Trip - Login</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page-body">
+
+    <div class="login-container animate-on-load">
+        <div class="login-header">
+            <i class="fas fa-plane-departure login-icon"></i> <!-- Reverted to icon -->
+            <h2>Welcome Back to Smart Trip!</h2> <!-- Updated text -->
+            <p>Sign in to your Smart Trip account.</p>
+        </div>
+        <form id="login-form" class="login-form">
+            <div class="input-group">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="login-email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="login-password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+        <p class="login-footer">Don't have an account? <a href="/register">Sign Up</a></p>
+        <p class="login-footer">Are you an admin? <a href="/admin_login">Admin Login</a></p>
+    </div>
+
+    <!-- Custom Booking/Message Modal -->
+    <div id="booking-modal" class="modal-overlay">
+        <div class="modal-content bounce-in">
+            <span class="close-button">&times;</span>
+            <h2>Message</h2>
+            <p id="modal-message"></p>
+            <button class="modal-ok-button">OK</button>
+        </div>
+    </div>
+
+    <!-- Link your JavaScript file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

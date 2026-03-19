@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Trip - Payment</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link your CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="payment-page-body">
+
+    <div class="payment-container animate-on-load">
+        <div class="payment-header">
+            <i class="fas fa-credit-card payment-icon"></i> <!-- Reverted to icon -->
+            <h2>Complete Your Smart Trip Booking</h2>
+            <p>Please enter your payment details for: <strong>{{ booking.item_name }}</strong></p>
+            <p>Total Amount: <span class="price-display">${{ "%.2f"|format(booking.price) }}</span></p>
+        </div>
+        <form id="payment-form" class="payment-form">
+            <div class="input-group">
+                <i class="fas fa-credit-card icon"></i>
+                <input type="text" id="card-number" placeholder="Card Number (e.g., 4111-XXXX-XXXX-XXXX)" required pattern="\d{4}-?\d{4}-?\d{4}-?\d{4}" title="Enter a 16-digit card number">
+            </div>
+            <button type="submit" class="payment-button">Pay Now</button>
+        </form>
+        <p class="payment-footer">
+            <a href="/" class="back-to-home-link"><i class="fas fa-arrow-left"></i> Cancel and Go Home</a>
+        </p>
+    </div>
+
+    <!-- Custom Booking/Message Modal -->
+    <div id="booking-modal" class="modal-overlay">
+        <div class="modal-content bounce-in">
+            <span class="close-button">&times;</span>
+            <h2>Message</h2>
+            <p id="modal-message"></p>
+            <button class="modal-ok-button">OK</button>
+        </div>
+    </div>
+
+    <!-- Hidden input to pass booking ID to JavaScript -->
+    <input type="hidden" id="booking-id" value="{{ booking.booking_id }}">
+
+    <!-- Link your JavaScript file -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

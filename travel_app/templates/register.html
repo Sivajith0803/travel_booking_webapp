@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Smart Trip</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-page-body">
+    <div class="auth-container animate-on-load">
+        <div class="auth-header">
+            <i class="fas fa-user-plus auth-icon bounce-in"></i> <!-- Reverted to icon -->
+            <h1>Join Smart Trip!</h1>
+            <p>Register to unlock amazing travel deals.</p>
+        </div>
+        <form id="registration-form" class="auth-form">
+            <div class="input-group">
+                <i class="fas fa-signature icon"></i>
+                <input type="text" id="reg-name" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope icon"></i>
+                <input type="email" id="reg-email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-phone icon"></i>
+                <input type="tel" id="reg-phone" placeholder="Phone Number" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" id="reg-password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="auth-button">Register</button>
+        </form>
+        <div class="auth-footer">
+            <p>Already registered? <a href="/login">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Custom Booking/Message Modal -->
+    <div id="booking-modal" class="modal-overlay">
+        <div class="modal-content bounce-in">
+            <span class="close-button">&times;</span>
+            <h2>Message</h2>
+            <p id="modal-message"></p>
+            <button class="modal-ok-button">OK</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
